@@ -40,6 +40,7 @@ jobs:
       - run: npm ci
       - run: ls -la # added for testing
       - run: hugo --minify
+      - run: ls -la # added for testing
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
