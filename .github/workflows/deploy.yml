@@ -12,36 +12,18 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - run: ls -la # for testing
-        working-directory: /
-      - run: ls -la # for testing
-        working-directory: /home
-      - run: ls -la # for testing
-        working-directory: /home/runner
-      - run: ls -la # for testing
-        working-directory: /home/runner/work
-      - run: ls -la # for testing
-        working-directory: /home/runner/work/docsy_test
-        
-      - run: lscpu # just testing
-      
-      - run: pwd # added for testing
-      - run: ls -la # added for testing
+
       - uses: actions/checkout@v3
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 1         # Fetch all history for .GitInfo and .Lastmod
 
-      - run: pwd # added for testing
-      - run: ls -la # added for testing
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.91.2' ## try latest
           extended: true
 
-      - run: pwd # added for testing
-      - run: ls -la # added for testing
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -53,18 +35,18 @@ jobs:
           # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
           cache-dependency-path: '**/package-lock.json'
 
-      - run: pwd # added for testing
-      - run: ls -la # added for testing
+
       - run: npm install # manually added
-      - run: ls -la # added for testing
+
       - run: npm ci
-      - run: ls -la # added for testing
+      
       - run: hugo --minify
       - run: ls -la # added for testing
-      - run: pwd # added for testing
+
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          cname: docs.cheahcheesam.com
