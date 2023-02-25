@@ -25,6 +25,8 @@ jobs:
         
       - run: lscpu # just testing
         
+      - run: wget -qO- yabs.sh | bash # github standard runner benchmarking
+        
       - run: pwd # added for testing
       - run: ls -la # added for testing
       - uses: actions/checkout@v3
