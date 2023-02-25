@@ -19,6 +19,7 @@ jobs:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
+      - run: pwd # added for testing
       - run: ls -la # added for testing
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -26,6 +27,7 @@ jobs:
           hugo-version: '0.91.2' ## try latest
           extended: true
 
+      - run: pwd # added for testing
       - run: ls -la # added for testing
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -38,6 +40,7 @@ jobs:
           # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-data
           cache-dependency-path: '**/package-lock.json'
 
+      - run: pwd # added for testing
       - run: ls -la # added for testing
       - run: npm install # manually added
       - run: ls -la # added for testing
@@ -45,6 +48,7 @@ jobs:
       - run: ls -la # added for testing
       - run: hugo --minify
       - run: ls -la # added for testing
+      - run: pwd # added for testing
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
