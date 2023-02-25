@@ -13,6 +13,8 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - run: ls -la # for testing
+        working-directory: /
+      - run: ls -la # for testing
         working-directory: /home
       - run: ls -la # for testing
         working-directory: /home/runner
