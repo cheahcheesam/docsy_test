@@ -12,6 +12,17 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - run: ls -la # for testing
+        working-directory: /home
+      - run: ls -la # for testing
+        working-directory: /home/runner
+      - run: ls -la # for testing
+        working-directory: /home/runner/work
+      - run: ls -la # for testing
+        working-directory: /home/runner/work/docsy_test
+        
+      - run: lscpu # just testing
+        
       - run: pwd # added for testing
       - run: ls -la # added for testing
       - uses: actions/checkout@v3
