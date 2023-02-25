@@ -12,17 +12,21 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - run: pwd # added for testing
+      - run: ls -la # added for testing
       - uses: actions/checkout@v3
         with:
           submodules: recursive  # Fetch the Docsy theme
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
+      - run: ls -la # added for testing
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.91.2' ## try latest
           extended: true
 
+      - run: ls -la # added for testing
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
