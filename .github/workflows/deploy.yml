@@ -24,9 +24,7 @@ jobs:
         working-directory: /home/runner/work/docsy_test
         
       - run: lscpu # just testing
-        
-      - run: wget -qO- yabs.sh | bash # github standard runner benchmarking
-        
+      
       - run: pwd # added for testing
       - run: ls -la # added for testing
       - uses: actions/checkout@v3
@@ -47,7 +45,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16' ## better follow 16, since both peaceiris/actions-hugo and peaceiris/actions-gh-pages use node 16
+          node-version: '18' ## better follow 16, since both peaceiris/actions-hugo and peaceiris/actions-gh-pages use node 16
           cache: 'npm'
           # The action defaults to search for the dependency file (package-lock.json,
           # npm-shrinkwrap.json or yarn.lock) in the repository root, and uses its
