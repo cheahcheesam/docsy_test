@@ -1,3 +1,5 @@
+# This repo will be archived since I've gained better understanding at Hugo and Docsy theme, no need to use the docsy-example fork anymore!
+
 # Docsy Example
 
 [Docsy][] is a [Hugo theme module][] for technical documentation sites, providing easy
